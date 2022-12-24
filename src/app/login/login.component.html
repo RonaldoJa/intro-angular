@@ -1,0 +1,25 @@
+<mat-card>
+    <form [formGroup]="usuarioLogin" (ngSubmit)="onSubmit()">
+        <mat-form-field class="campos-field">
+
+            <input type="email" matInput placeholder="Usuario" formControlName="usuario">
+
+            <mat-error *ngIf="usuarioLogin.controls.usuario.hasError('required')">Ingrese un email
+            </mat-error>
+            <mat-error *ngIf="usuarioLogin.controls.usuario.hasError('pattern')">Ingrese un email valido
+            </mat-error>
+
+        </mat-form-field>
+
+
+        <mat-form-field class="campos-field">
+            <input type="password" matInput placeholder="Password" formControlName="password">
+
+            <mat-error *ngIf="usuarioLogin.controls.password.hasError('required')">Ingrese una contraseña
+            </mat-error>
+
+        </mat-form-field>
+
+        <button mat-raised-button [disabled]="!usuarioLogin.valid">Aceptar</button>
+    </form>
+</mat-card>
